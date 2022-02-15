@@ -1,0 +1,30 @@
+<div class="container">
+
+
+<div class="row">
+
+    <img *ngIf="movie.poster_path" src="https://image.tmdb.org/t/p/original{{ movie.poster_path}}" style="max-width: 300px;"/>
+
+<br>
+<b>{{movie.original_title}}</b><br>
+<b>Average Rating: {{movie.vote_average}}</b><br>
+<b>budget: {{movie.budget}}</b><br>
+<b>release_date: {{movie.release_date}}</b><br>
+<b>revenue: {{movie.revenue}}</b><br>
+<b>vote_average: {{movie.vote_average}}</b><br>
+<b>vote_average: {{movie.vote_average}}</b><br>
+<b>vote_average: {{movie.vote_average}}</b><br>
+<b>vote_count: {{movie.vote_count}}</b><br>
+<b>vote_average: {{movie.vote_average}}</b><br>
+ <b>spoken_languages:</b>
+<div *ngFor=" let lang of movie.spoken_languages" >
+
+     {{lang.english_name}}<br>
+
+
+</div>
+
+<a [routerLink]="['/']">Back to home</a>
+</div>
+
+</div>

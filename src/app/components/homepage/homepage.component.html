@@ -1,0 +1,29 @@
+<div class="mastersearchinput">
+
+    <div class="row searchinput">
+
+        <app-search-input [SearchInputValue]="SearchInputValue" (SearchInputValueChange)="SearchInputValue = $event; searchMovie(SearchInputValue)"  ></app-search-input>
+        <div class="movie-results">
+
+            <div *ngFor="let result of results.results" class="movie-item">  
+                <a [routerLink]="['/movie', result.id]">
+                    <img *ngIf="result.poster_path" src="https://image.tmdb.org/t/p/original{{ result.poster_path}}" style="max-width: 300px;"/>
+                </a>
+                <br>
+                <b>{{result.original_title}}</b><br>
+                <b>Average Rating: {{result.vote_average}}</b><br>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+</div>
+<div class="row">
+    <mat-paginator #paginator [length]="results.total_results" [pageSize]="20" [pageSizeOptions]="[20]"
+        [showFirstLastButtons]="true" aria-label="Select page" (page)="searchMovie(SearchInputValue, $event.pageIndex +1)">
+    </mat-paginator>
+
+</div>
